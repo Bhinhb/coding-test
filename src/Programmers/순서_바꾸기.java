@@ -7,12 +7,27 @@ package Programmers;
 
 public class 순서_바꾸기 {
     public static int[] solution(int[] num_list, int n) {
-        int[] answer = {};
+
+        // 새로운 배열 생성
+        int length = num_list.length;
+        int[] answer = new int[length];
+
+        // n번째 이후 원소를 앞에 삽입
+        for (int i = n; i<length; i++) {
+            answer[i-n] = num_list[i];
+        }
+
+        // n번째 이전 원소를 뒤에 삽입
+        for (int i = 0; i<n; i++) {
+            answer[length-n+i] = num_list[i];
+
+        }
         return answer;
     }
 
     public static void main(String[] args) {
         int[] num_list = {2, 1, 6};
         int[] result = solution(num_list, 1);
+        System.out.println(result[0] + " " + result[1] + " " + result[2]);
     }
 }
